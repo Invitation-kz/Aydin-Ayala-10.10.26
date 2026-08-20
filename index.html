@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta property="og:title" content="Сүндет той Айдын, Тұсау кесер Аяла 1 жас">
 <meta property="og:description" content="10.10.2026">
-<title>Сүндет той Айдын, Тұсау кесер Аяла 1 жас</title>
+<title>Сүндет той Айдын, Тұсаукесер Аяла 1 жас</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Piazzolla:wght@100;300;400;600&display=swap" rel="stylesheet">
 
@@ -131,19 +131,19 @@
   .radio-group label {
     font-weight: 300;
     margin-left: 4px;
-    color: #1d6809;
+    color: #543e36;
     font-size: 1rem;
   }
   .radio-group input[type="radio"] {
     margin-right: 4px;
-    accent-color: #1d6809;
+    accent-color: #543e36;
     width: 15px;
     height: 15px;
   }
   .form-inner textarea {
     width: 100%;
     border: none;
-    border-bottom: 1px solid #1d6809;
+    border-bottom: 1px solid #543e36;
     border-radius: 0;
     padding: 8px 4px 4px;
     font-size: 0.95rem;
@@ -151,12 +151,12 @@
     resize: vertical;
     min-height: 40px;
     font-family: inherit;
-    color: #1d6809;
+    color: #543e36;
     outline: none;
     transition: border-color 0.3s;
   }
   .form-inner textarea:focus {
-    border-bottom-color: #1d6809;
+    border-bottom-color: #543e36;
   }
   .form-inner textarea::placeholder {
     color: #6f8a53;
@@ -164,8 +164,8 @@
   }
   .btn-submit {
     background: transparent;
-    color: #1d6809;
-    border: 1px solid #1d6809;
+    color: #543e36;
+    border: 1px solid #543e36;
     border-radius: 30px;
     padding: 10px 30px;
     font-size: 0.95rem;
@@ -178,7 +178,7 @@
     font-family: inherit;
   }
   .btn-submit:hover {
-    background: #1d6809;
+    background: #543e36;
     color: #ffffff;
   }
 
@@ -210,7 +210,7 @@
     max-width: 380px;
     width: 85%;
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    border: 1px solid #1d6809;
+    border: 1px solid #543e36;
   }
   .modal-content img {
     width: 100%;
@@ -220,9 +220,9 @@
     border: 1px solid #ddd;
   }
   .modal-content button {
-    background: #1d6809;
+    background: #543e36;
     color: #ffffff;
-    border: 1px solid #1d6809;
+    border: 1px solid #543e36;
     padding: 14px 40px;
     border-radius: 50px;
     font-size: 1.1rem;
@@ -234,7 +234,7 @@
   }
   .modal-content button:hover {
     background: #ffffff;
-    color: #1d6809;
+    color: #543e36;
     transform: scale(1.03);
   }
   .modal-content button:active {
@@ -320,7 +320,7 @@
     <form id="form">
       <div class="form-inner">
         <div class="radio-group">
-          <p style="font-weight:300; margin-bottom:6px; color:#1d6809;">Жұбыңызбен келсеңіз, есімін жазыңыз</p>
+          <p style="font-weight:300; margin-bottom:6px; color:#543e36;">Жұбыңызбен келсеңіз, есімін жазыңыз</p>
           <textarea name="message" maxlength="100" id="message" rows="1" placeholder="Есіміңіз"></textarea>
         </div>
 
@@ -332,11 +332,11 @@
         </div>
 
         <div class="radio-group">
-          <p style="font-weight:300; margin-bottom:6px; color:#1d6809;">Неше адам болып келесіздер?</p>
+          <p style="font-weight:300; margin-bottom:6px; color:#543e36;">Неше адам болып келесіздер?</p>
           <div style="display:flex; align-items:center; gap:14px; justify-content:center;">
-            <button type="button" id="decrease" style="background:none; border:1px solid #1d6809; color:#1d6809; border-radius:50%; width:34px; height:34px; font-size:1.3rem; cursor:pointer;">−</button>
-            <span id="peopleCount" style="font-size:1.3rem; min-width:24px; text-align:center; color:#1d6809;">1</span>
-            <button type="button" id="increase" style="background:none; border:1px solid #1d6809; color:#1d6809; border-radius:50%; width:34px; height:34px; font-size:1.3rem; cursor:pointer;">+</button>
+            <button type="button" id="decrease" style="background:none; border:1px solid #543e36; color:#543e36; border-radius:50%; width:34px; height:34px; font-size:1.3rem; cursor:pointer;">−</button>
+            <span id="peopleCount" style="font-size:1.3rem; min-width:24px; text-align:center; color:#543e36;">1</span>
+            <button type="button" id="increase" style="background:none; border:1px solid #543e36; color:#543e36; border-radius:50%; width:34px; height:34px; font-size:1.3rem; cursor:pointer;">+</button>
           </div>
           <input type="hidden" name="choice" id="choiceHidden" value="1">
         </div>
@@ -378,6 +378,49 @@
     }
 
     playBtn.addEventListener('click', openInvitation);
+
+   // АВТОСКРОЛЛ ПОСЛЕ 5 СЕКУНД БЕЗДЕЙСТВИЯ
+let autoScrollInterval;
+let inactivityTimer;
+
+function startAutoScroll() {
+  if (autoScrollInterval) return;
+
+  autoScrollInterval = setInterval(() => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    if (window.scrollY >= maxScroll - 5) {
+      stopAutoScroll();
+      return;
+    }
+
+    window.scrollBy({
+      top: 1,
+      behavior: 'auto'
+    });
+  }, 20); // скорость прокрутки
+}
+
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+  autoScrollInterval = null;
+}
+
+function resetInactivityTimer() {
+  stopAutoScroll();
+
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(() => {
+    startAutoScroll();
+  }, 5000);
+}
+
+['mousemove', 'touchstart', 'touchmove', 'wheel', 'scroll', 'keydown']
+  .forEach(event => {
+    window.addEventListener(event, resetInactivityTimer, { passive: true });
+  });
+
+resetInactivityTimer();
 
     // Фотолардың бірте-бірте пайда болуы
     const observer = new IntersectionObserver(function (entries) {
@@ -437,7 +480,7 @@
     });
 
     // ФОРМА
-    const URL_APP = "https://script.google.com/macros/s/AKfycbxXh10VgtCEaZSJaUP_6qlYhr5RAnFC3eHp25cJNpoYqCO4wbIh060i6nr_xkmFzBRp/exec";
+    const URL_APP = "https://script.google.com/macros/s/AKfycbxXh10VgtCEaZSJaUP_6qlYhr5RAnFC3eHp25cJNpoYqCO4wbIh060i6nr_xkmFzBRp/exec"; // сюда вставите ссылку на Google-таблицу (Apps Script)
     const form = document.querySelector("#form");
 
     form.addEventListener("submit", async function (ev) {
