@@ -18,6 +18,7 @@
   body {
     font-family: 'Piazzolla', serif;
     overflow-x: hidden;
+    background-color: #f1eff1;   /* ← новый цвет фона */
   }
   img {
     display: block;
@@ -26,20 +27,6 @@
   }
   a {
     display: block;
-  }
-
-  /* ЕДИНЫЙ ФОН */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('fon.jpg');
-    background-size: cover;
-    background-position: center center;
-    z-index: -1;
   }
 
   /* Все остальные элементы — прозрачные, без своего фона */
@@ -270,7 +257,7 @@
 
 <!-- ФОТО 3 (анимация вращения) -->
 <div class="element-animation" style="display:flex; justify-content:center;">
-  <img class="rot" src="crug.png" alt="grug">
+  <img class="rot" src="crug.png" alt="crug">
 </div>
 
 <!-- ФОТО 4 -->
